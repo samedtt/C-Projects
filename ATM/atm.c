@@ -17,10 +17,13 @@ account Pin;
 account newpin;
 account transaction;
 FILE *yptr;
+
 int main(){
     verify();
     
 }
+
+
 int menu(){
     int choice=0;
     while(1){
@@ -60,6 +63,7 @@ int menu(){
     }
     }
 }
+
 void pin(){
     printf("------------------------------\n");
     printf("-----------Git ATM------------\n");
@@ -69,6 +73,7 @@ void pin(){
     printf("\n\n");
 
 }
+
 void changepin(){
     int i=0;
     unsigned int test=0;
@@ -99,6 +104,8 @@ void changepin(){
    
 
 }
+
+
 int verify(){
     int rights=3;
     int login=0;
@@ -106,16 +113,20 @@ int verify(){
     FILE* xptr;
     xptr=fopen("blocked.txt","a+");
     fptr=fopen("pin.txt","r");
+   
     if(fscanf(xptr,"%d",&login)==1){
        printf("\n\n******!!Your account has been blocked!!******\n\n");
        fclose(xptr);
        fclose(fptr);
        return 0;
+    
     }
+    
     else{
     if(fptr==NULL){
         printf("The system has file problem.\n\n");
     }
+   
     else{
     fseek(fptr,-6,SEEK_END);
     fscanf(fptr,"%u",&Pin.current);
@@ -124,17 +135,20 @@ int verify(){
     printf("You have logged in succesfully\n\n");
      menu();   
     }
+    
     else{    
     while(rights>0){
         printf("You have entered wrong PIN.\n");
         printf("You have %d rights left\n\n",rights);
         pin();
         rights--;
+        
         if(Pin.pin==Pin.current){
             printf("You have logged in succesfully\n\n");
             menu();
             break;
         }
+        
         if(rights==0){
             printf("\n\n***Your account has been blocked.***\n\n");
             fprintf(xptr,"%d\n",1);
@@ -147,6 +161,7 @@ int verify(){
 fclose(xptr);
 fclose(fptr);
 }
+
 void cancel(){
     printf("\n\n Exitting...\n\n");
     printf("------------------------------\n");
@@ -165,6 +180,7 @@ void cancel(){
     printf("|----------------------------|\n\n\n");
 
 }
+
 void balance(){
     transaction.balance=0;
     yptr=fopen("balance.txt","r");
@@ -178,6 +194,8 @@ void balance(){
     fclose(yptr);
     
 }
+
+
 void deposit() {
     unsigned long long int amount = 0;
     transaction.balance = 0;
@@ -219,6 +237,9 @@ void deposit() {
    
     fclose(yptr);
 }
+
+
+
 void withdraw() {
     unsigned long long int amount = 0;
     transaction.balance = 0;
