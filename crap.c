@@ -8,7 +8,7 @@ enum gamestatus{
     CONTINUE
 
 };
-void status(int status);
+void print_status(int status);
 int roll();
 int main(){
     srand(time(NULL));
@@ -46,6 +46,7 @@ int main(){
      
     }
     status(status);
+    return 0;
 }
 int roll(){
      int dice1=1+rand()%6;
@@ -54,7 +55,7 @@ int roll(){
      return dice1+dice2;
 }
 
-void status(int status){
+void print_status(int status){
      if(status==WON){
             printf("Player wins!");
         }
