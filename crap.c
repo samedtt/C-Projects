@@ -45,7 +45,7 @@ int main(){
         }
      
     }
-    status(status);
+    print_status(status);
     return 0;
 }
 int roll(){
