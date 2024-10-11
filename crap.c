@@ -45,19 +45,21 @@ int main(){
         }
      
     }
-       if(status==WON){
-            printf("Player wins!");
-        }
-        else{
-            printf("Player loses!");
-        }
-        return 0;
-
+    status(status);
 }
 int roll(){
      int dice1=1+rand()%6;
      int dice2=1+rand()%6;
      printf("Player rolled %d+%d=%d\n",dice1,dice2,dice1+dice2);
      return dice1+dice2;
+}
+
+void status(int status){
+     if(status==WON){
+            printf("Player wins!");
+        }
+    else{
+            printf("Player loses!");
+        }
 }
 
