@@ -9,10 +9,10 @@ int page;
 double price;
 }book_info;
 void menu(book_info book[]);
-void add_book_info();
-void display_book_info();
-void list_books_of_author();
-void count_of_books();
+void add_book_info(book_info book[], int *count);
+void display_book_info(book_info book[], int *count);
+void list_books_of_author(book_info book[], int *count);
+void count_of_books(int *count);
 
 
 int main(){
